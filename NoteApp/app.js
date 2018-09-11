@@ -5,22 +5,25 @@ const yargs = require("yargs");
 const notes = require("./notes.js");
 var command = yargs.argv._[0];
 //console.log(yargs.argv);
+//run npm install on app.js directory then run node app.js help 
+//all operations are done on command line
 
-if(command === "add"){
-    notes.createNote(yargs.argv.title,yargs.argv.content);
-}
-else if(command === "remove"){
-    notes.deleteNote(yargs.argv.title);
-}
-else if(command === "read"){
-    notes.getNote(yargs.argv.title);
-}
-else if(command === "list"){
-    notes.getAllNotes();
-}
-else if(command === "help"){
-    notes.logHelp();
-}
-else{
-    console.log("Command not recognized.Please try this command =>   help");
+switch(command){
+	case "add":
+		notes.createNote(yargs.argv.title,yargs.argv.content);
+		break;
+	case "remove":
+		notes.deleteNote(yargs.argv.title);
+		break;
+	case "read":
+		notes.getNote(yargs.argv.title);
+		break;
+	case "list":
+		notes.getAllNotes();
+		break;
+	case "help":
+		notes.logHelp();
+		break;
+	default:
+		console.log("Command not recognized.Please try this command =>   help");
 }

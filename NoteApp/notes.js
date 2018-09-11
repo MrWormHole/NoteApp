@@ -5,7 +5,6 @@ var createNote = (title,content) =>  {
     var note = {
         title,
         content
-        //does this work
     }
     var duplicateNotes = notes.filter((note) => note.title === title);
 
